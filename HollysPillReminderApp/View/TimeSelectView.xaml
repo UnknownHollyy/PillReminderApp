@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HollysPillReminderApp.View.TimeSelectView"
+             xmlns:viewmodel="clr-namespace:HollysPillReminderApp.ViewModel"
+             x:DataType="viewmodel:TimeSelectViewModel"
+             Title="TimeSelectView">
+
+    <ContentPage.Background>
+
+        <LinearGradientBrush EndPoint="1,0">
+            <GradientStop Color="{Binding GradientFirstColor}"
+                          Offset="0.1" />
+            <GradientStop Color="{Binding GradientSecondColor}"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+
+    </ContentPage.Background>
+
+    <StackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Padding="50" >
+
+            <Picker 
+                WidthRequest="150"
+                ItemsSource="{Binding HourePickerArray}"
+                Title="Hours"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center" 
+                FontSize="34"
+                TextColor="White"
+                TitleColor="Black"
+                BackgroundColor="Black"
+                SelectedIndex="{Binding HourePickerIndex}" />
+
+            <Picker
+                WidthRequest="150"
+                ItemsSource="{Binding MinutsPickerArray}"
+                Title="Minutes"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center" 
+                FontSize="34"
+                TextColor="White"
+                TitleColor="Black"
+                BackgroundColor="Black"
+                SelectedIndex="{Binding MinutsPickerIndex}" />
+
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="End" >
+
+            <Button
+                WidthRequest="100"
+                HeightRequest="50"
+                Margin="{Binding ButtonMargin}" 
+                Text="Cancel"
+                FontAttributes="Bold"
+                Command="{Binding OnCancelButtonClicked}" />
+
+            <Button                
+                WidthRequest="100"
+                HeightRequest="50"
+                Text="Start"
+                FontAttributes="Bold"
+                Command="{Binding OnStartButtonClicked}" />
+
+        </HorizontalStackLayout>
+
+    </StackLayout>
+    
+</ContentPage>

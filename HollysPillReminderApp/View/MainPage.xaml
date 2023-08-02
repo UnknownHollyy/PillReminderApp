@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:viewmodel="clr-namespace:HollysPillReminderApp.ViewModel"
+             x:DataType="viewmodel:MainPageViewModel"
+             x:Class="HollysPillReminderApp.View.MainPage">
+
+    <ContentPage.Background>
+
+        <LinearGradientBrush EndPoint="1,0">
+            <GradientStop Color="{Binding GradientFirstColor}"
+                          Offset="0.1" />
+            <GradientStop Color="{Binding GradientSecondColor}"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+        
+    </ContentPage.Background>
+
+    <Grid x:Name="Layout">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Rectangle 
+            Grid.ColumnSpan="7"
+            Grid.Row="0" 
+            Margin="{Binding LabelBackgroundMargin}"
+            Fill="Black" />
+
+        <Label 
+            Grid.Column="0"
+            Grid.Row="0"
+            Text="Mo" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="1"
+            Grid.Row="0"
+            Text="Tu" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="2"
+            Grid.Row="0"
+            Text="We" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="3"
+            Grid.Row="0"
+            Text="Th" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="4"
+            Grid.Row="0"
+            Text="Fr" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="5"
+            Grid.Row="0"
+            Text="Sa"
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Label 
+            Grid.Column="6"
+            Grid.Row="0"
+            Text="Su" 
+            TextColor="White"
+            Margin="{Binding Margin}"
+            FontSize="{Binding FontSize}"
+            FontAttributes="Bold"/>
+
+        <Button
+            Grid.Column="5"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            Margin="12"
+            Text="Set Reminder"
+            FontSize="10"
+            FontAttributes="Bold"
+            BackgroundColor="{Binding GoToTimeSelectViewButtonBackgroundColor}"
+            BorderWidth="3"
+            BorderColor="White"
+            Command="{Binding GoToTimeSelectViewCommand}"/>
+
+    </Grid>
+
+</ContentPage>
