@@ -52,7 +52,6 @@ namespace HollysPillReminderApp.ViewModel
         {
             MaxDaysNumberInMonth = DateTime.DaysInMonth(year, month);
             CreateButtons(MaxDaysNumberInMonth);
-            Notification notification = new();
         }
 
         private void CreateButtons(int Days)

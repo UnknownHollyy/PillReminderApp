@@ -1,7 +1,10 @@
-﻿using HollysPillReminderApp.View;
+﻿using HollysPillReminderApp.Interfaces;
+using HollysPillReminderApp.View;
 using HollysPillReminderApp.ViewModel;
 using Microsoft.Extensions.Logging;
 using Plugin.LocalNotification;
+using HollysPillReminderApp;
+using ForegroundService = HollysPillReminderApp;
 
 namespace HollysPillReminderApp;
 
@@ -24,6 +27,10 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<TimeSelectView>();
 		builder.Services.AddTransient<TimeSelectViewModel>();
+
+#if ANDROID
+		builder.Services.AddTransient<IServices, ForegroundService>();
+#endif
 
 #if DEBUG
 		builder.Logging.AddDebug();

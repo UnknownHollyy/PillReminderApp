@@ -9,10 +9,12 @@
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
   <permission android:name="com.companyname.hollyspillreminderapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature" />
   <uses-permission android:name="com.companyname.hollyspillreminderapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
   <application android:name="crc64cf58554a6c1fa9d2.MainApplication" android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="true" android:icon="@mipmap/appicon" android:label="HollysPillReminderApp" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
     <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <service android:name="crc64cf58554a6c1fa9d2.ForegroundService" android:foregroundServiceType="dataSync" />
     <activity android:name="crc64cf58554a6c1fa9d2.MainActivity" android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:exported="true" android:theme="@style/Maui.SplashTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

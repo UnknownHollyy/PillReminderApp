@@ -1,14 +1,16 @@
 ﻿
 using HollysPillReminderApp.Commands;
+using HollysPillReminderApp.Interfaces;
 using HollysPillReminderApp.Utils;
 using System.ComponentModel;
 using System.Windows.Input;
-using Timer = HollysPillReminderApp.Model.Timer;
 
 namespace HollysPillReminderApp.ViewModel
 {
     public class TimeSelectViewModel : INotifyPropertyChanged
     {
+
+        private IServices services;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -74,8 +76,10 @@ namespace HollysPillReminderApp.ViewModel
             get { return true; }
         }
 
-        public TimeSelectViewModel()
+        public TimeSelectViewModel(IServices services)
         {
+            this.services = services;
+
             FillPickerArrays();
             MatchPickerIndexWithCurrentDateTime();
         }
@@ -97,14 +101,13 @@ namespace HollysPillReminderApp.ViewModel
 
         private async void GoBackToMainPage()
         {
+            services.Stop();
             await Shell.Current.GoToAsync("..");
         }
 
         private async void StartTimer()
         {
-            Timer timer = new(HourePickerIndex, MinutsPickerIndex);
-            timer.TimerIsSet = true;
-
+            services.Start(HourePickerIndex, MinutsPickerIndex);
             await Shell.Current.GoToAsync("..");
         }
 
